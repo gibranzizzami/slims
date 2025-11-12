@@ -1,3 +1,8 @@
+# install docker dan docker compose
+```
+sudo pacman -S docker docker-compose
+```
+
 # cloning repository
 masuk ke github slims
 ```
@@ -9,10 +14,6 @@ git clone https://github.com/slims/docker-compose-for-slims.git
 cd docker-compose-for-slims/
 ```
 
-# install docker compose
-```
-sudo pacman -S docker-compose
-```
 
 # running docker
 ```
