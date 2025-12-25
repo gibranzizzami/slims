@@ -4,8 +4,11 @@ sudo pacman -S apache --noconfirm &&
 sudo systemctl enable httpd &&
 sudo systemctl start httpd &&
 
+# Install php
+sudo pacman -S php php-fpm php-gd --noconfirm &&
+
 # install mariadb
-sudo pacman -S mariadb php php-fpm php-gd --noconfirm &&
+sudo pacman -S mariadb --noconfirm &&
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
 sudo systemctl enable mariadb &&
 sudo systemctl start mariadb &&
@@ -80,7 +83,7 @@ sudo sed -i \
 $PHP_INI
 
 # Restart apache
-sudo systemctl restart httpd
+sudo systemctl restart httpd &&
 
 # Mengaktifkan php service
 sudo systemctl enable php-fpm &&
