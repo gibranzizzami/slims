@@ -20,6 +20,6 @@ FLUSH PRIVILEGES;
 EOF
 
 # Download slims
-mkdir -p /home/null/Downloads/slims &&
-wget https://github.com/slims/slims9_bulian/releases /home/null/Downloads/slims &&
-tar -xf /home/null/Downloads/slims/slims9_bulian-9.7.2.tar.gz -C /srv/http
+cd /home/null/Downloads &&
+wget https://github.com/slims/slims9_bulian/releases &&
+tar -xf slims9_bulian-9.7.2.tar.gz -C /srv/http
