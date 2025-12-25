@@ -117,40 +117,6 @@ FLUSH PRIVILEGES;
 exit;
 ```
 
-## step 10
-
-- buat database untuk slims
-
-```
-CREATE DATABASE slims;
-```
-
-- buat user untuk database slims
-
-```
-CREATE USER '[user]'@'localhost' IDENTIFIED BY '[password]';
-```
-note: nama user dan password disesuaikan
-
-- berikan akses ke user
-
-```
-GRANT ALL PRIVILEGES ON slims.* TO '[user]'@'localhost';
-```
-note: user disesuaikan
-
-- jalankan command flush privileges
-
-```
-FLUSH PRIVILEGES;
-```
-
-- keluar dari mariadb
-
-```
-exit;
-```
-
 ## step 11
 
 - masuk ke dalam folder Downloads
@@ -165,7 +131,7 @@ https://github.com/slims/slims9_bulian/releases
 - pindahkan unzip file slims dan pindahkan ke /srv/http
 
 ```
-tar -xf Downloads/slims9_bulian-9.7.2.tar.gz -C /srv/http
+sudo tar -xf /home/null/Downloads/slims9_bulian-9.7.2.tar.gz -C /srv/http
 ```
 
 ## step 12
