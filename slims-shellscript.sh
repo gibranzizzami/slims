@@ -84,4 +84,4 @@ sudo systemctl restart httpd
 
 # Mengaktifkan php service
 sudo systemctl enable php-fpm &&
-sudo systemctl start php-fm 
+sudo systemctl start php-fpm 
