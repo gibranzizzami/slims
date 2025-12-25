@@ -32,16 +32,19 @@ APACHE_CONF="/etc/httpd/conf/httpd.conf"
 # BACKUP FILE KONFIGURASI
 sudo cp $APACHE_CONF ${APACHE_CONF}.bak
 
-# ENABLE REQUIRED MODULES
-sudo sed -i \
--e 's/^LoadModule rewrite_module/LoadModule rewrite_module/' \
-$APACHE_CONF
+# Enable proxy module 
+sudo sed -i 's/^#LoadModule proxy_module/LoadModule proxy_module/' $APACHE_CONF
 
-# Tambahkan proxy & proxy_fcgi setelah AddHandler php
-sudo sed -i '/AddHandler php-script .php/a \
-LoadModule proxy_module modules/mod_proxy.so\n\
-LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so' \
-$APACHE_CONF
+# Enable proxy_fcgi module 
+sudo sed -i 's/^#LoadModule proxy_fcgi_module/LoadModule proxy_fcgi_module/' $APACHE_CONF
+
+# Tambahkan LoadModule proxy & proxy_fcgi
+grep -q "^LoadModule proxy_module" $APACHE_CONF || \
+sudo sed -i '/LoadModule rewrite_module/a LoadModule proxy_module modules/mod_proxy.so' $APACHE_CONF
+
+grep -q "^LoadModule proxy_fcgi_module" $APACHE_CONF || \
+sudo sed -i '/LoadModule proxy_module/a LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so' $APACHE_CONF
+
 
 # ENABLE PHP-FPM HANDLER
 sudo tee -a $APACHE_CONF > /dev/null <<EOF
