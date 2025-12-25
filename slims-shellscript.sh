@@ -79,9 +79,9 @@ sudo sed -i \
 -e 's/^;extension=mbstring/extension=mbstring/' \
 $PHP_INI
 
-# Mengaktifkan php service
-sudo systemctl enable php-fpm &&
-sudo systemctl start php-fm
-
 # Restart apache
 sudo systemctl restart httpd
+
+# Mengaktifkan php service
+sudo systemctl enable php-fpm &&
+sudo systemctl start php-fm 
