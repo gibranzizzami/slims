@@ -34,14 +34,10 @@ APACHE_CONF="/etc/httpd/conf/httpd.conf"
 # Backup konfigurasi
 sudo cp $APACHE_CONF ${APACHE_CONF}.bak
 
-# Uncommenting module proxy
-sudo sed -i \
--e 's/^#LoadModule proxy_module modules/LoadModule proxy_module modules/mod_proxy.so/' \
-$APACHE_CONF
-
-# Uncommenting module proxy fcgi
-sudo sed -i \
--e 's/^#LoadModule proxy_fcgi_module modules/LoadModule proxy_fcgi_module modules/' \
+# Tambahkan LoadModule proxy & proxy_fcgi
+sudo sed -i '/^LoadModule rewrite_module modules\/mod_rewrite.so/a \
+LoadModule proxy_module modules/mod_proxy.so\n\
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so' \
 $APACHE_CONF
 
 # Uncommenting module rewrite
