@@ -34,7 +34,7 @@ sudo cp $APACHE_CONF ${APACHE_CONF}.bak
 
 # ENABLE REQUIRED MODULES
 sudo sed -i \
--e 's/^#LoadModule rewrite_module/LoadModule rewrite_module/' \
+-e 's/^LoadModule rewrite_module/LoadModule rewrite_module/' \
 $APACHE_CONF
 
 # Tambahkan proxy & proxy_fcgi setelah AddHandler php
