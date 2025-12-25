@@ -29,42 +29,11 @@ sudo chown -R http:http /srv/http/slims &&
 # CONFIGURATION APACHE
 APACHE_CONF="/etc/httpd/conf/httpd.conf"
 
-# BACKUP FILE KONFIGURASI
+# Backup konfigurasi
 sudo cp $APACHE_CONF ${APACHE_CONF}.bak
 
-# Enable proxy module 
-sudo sed -i 's/^#LoadModule proxy_module/LoadModule proxy_module/' $APACHE_CONF
-
-# Enable proxy_fcgi module 
-sudo sed -i 's/^#LoadModule proxy_fcgi_module/LoadModule proxy_fcgi_module/' $APACHE_CONF
-
 # Tambahkan LoadModule proxy & proxy_fcgi
-grep -q "^LoadModule proxy_module" $APACHE_CONF || \
-sudo sed -i '/LoadModule rewrite_module/a LoadModule proxy_module modules/mod_proxy.so' $APACHE_CONF
-
-grep -q "^LoadModule proxy_fcgi_module" $APACHE_CONF || \
-sudo sed -i '/LoadModule proxy_module/a LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so' $APACHE_CONF
-
-
-# ENABLE PHP-FPM HANDLER
-sudo tee -a $APACHE_CONF > /dev/null <<EOF
-
-<FilesMatch "\.php$">
-    SetHandler "proxy:unix:/run/php-fpm/php-fpm.sock|fcgi://localhost/"
-</FilesMatch>
-EOF
-
-# SET AllowOverride All
-sudo sed -i \
--e 's/AllowOverride None/AllowOverride All/' \
+sudo sed -i '/^LoadModule rewrite_module modules\/mod_rewrite.so/a \
+LoadModule proxy_module modules/mod_proxy.so\n\
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so' \
 $APACHE_CONF
-
-# SET DIRECTORY INDEX
-sudo sed -i \
--e 's/DirectoryIndex index.html/DirectoryIndex index.php index.html index.htm/' \
-$APACHE_CONF
-
-# RESTART APACHE
-sudo systemctl enable php-fpm &&
-sudo systemctl start php-fpm &&
-sudo systemctl restart httpd
