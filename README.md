@@ -27,3 +27,16 @@ Running the installation
 ```
 ./slims-shellscript.sh
 ```
+
+## Step 5
+access slims on your browser
+localhost/slims
+
+notes
+| Database information | Answer     |
+| -------------------- | ------     |
+| Database host        | localhost  |
+| Database port        | 3306       |
+| Database name        | slims      |
+| Database username    | slims_user |
+| Database password    | userslims  |

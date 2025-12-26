@@ -119,19 +119,16 @@ exit;
 
 ## step 11
 
-- masuk ke dalam folder Downloads
+- Install slims directory dari github
 
 ```
-cd /Downloads
+wget https://github.com/slims/slims9_bulian/releases/download/v9.7.2/slims9_bulian-9.7.2.tar.gz
 ```
-
-- download slims melalui github release slims bulian
-https://github.com/slims/slims9_bulian/releases
 
 - pindahkan unzip file slims dan pindahkan ke /srv/http
 
 ```
-sudo tar -xf /home/null/Downloads/slims9_bulian-9.7.2.tar.gz -C /srv/http
+sudo tar -xf slims9_bulian-9.7.2.tar.gz -C /srv/http
 ```
 
 ## step 12
