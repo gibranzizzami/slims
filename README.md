@@ -30,7 +30,7 @@ Running the installation
 
 ## Step 5
 access slims on your browser
-localhost/slims
+http://localhost/slims
 
 notes
 | Database information | Answer     |
