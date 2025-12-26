@@ -23,7 +23,7 @@ FLUSH PRIVILEGES;
 EOF
 
 # Download slims
-cd /home/null/Downloads &&
+cd /home/achmad/Downloads &&
 wget https://github.com/slims/slims9_bulian/releases/download/v9.7.2/slims9_bulian-9.7.2.tar.gz &&
 sudo tar -xf /home/null/Downloads/slims9_bulian-9.7.2.tar.gz -C /srv/http &&
 sudo mv -f /srv/http/slims9_bulian-9.7.2 /srv/http/slims &&
