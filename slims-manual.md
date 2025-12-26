@@ -163,7 +163,7 @@ sudo chown -R http:http /srv/http/slims
 sudo nvim /etc/httpd/conf/httpd.conf
 ```
 
-- tambahkan pada Loadmodule, dibawah addhandler php
+- aktifkan module proxy dan proxy fcgi
 
 ```
 LoadModule proxy_module modules/mod_proxy.so
