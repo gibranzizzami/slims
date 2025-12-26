@@ -84,7 +84,7 @@ $PHP_INI
 
 # Mengaktifkan php service
 sudo systemctl enable php-fpm &&
-sudo systemctl start php-fpm
+sudo systemctl start php-fpm &&
 
 # Restart apache
 sudo systemctl restart httpd 
