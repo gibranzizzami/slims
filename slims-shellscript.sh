@@ -33,7 +33,7 @@ APACHE_CONF="/etc/httpd/conf/httpd.conf"
 # Backup konfigurasi
 sudo cp $APACHE_CONF ${APACHE_CONF}.bak
 
-# Uncommenting LoadModule proxy & proxy_fcgi
+# Uncommenting LoadModule proxy dan proxy_fcgi
 sudo sed -i \
 -e 's|^#LoadModule proxy_module modules/mod_proxy.so|LoadModule proxy_module modules/mod_proxy.so|' \
 -e 's|^#LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so|LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so|' \
@@ -75,7 +75,7 @@ sudo sed -i \
 -e 's/^;extension=gd/extension=gd/' \
 $PHP_INI
 
-# Uncommenting extension xml & mbstring
+# Uncommenting extension xml dan mbstring
 sudo sed -i \
 -e 's/^;extension=xml/extension=xml/' \
 -e 's/^;extension=mbstring/extension=mbstring/' \
