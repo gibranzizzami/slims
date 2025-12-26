@@ -87,4 +87,4 @@ sudo systemctl enable php-fpm &&
 sudo systemctl start php-fpm
 
 # Restart apache
-sudo systemctl restart httpd && 
+sudo systemctl restart httpd 
