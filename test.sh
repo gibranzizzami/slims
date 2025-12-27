@@ -1,10 +1,10 @@
 #!/bin/bash
 
-apin=sudo pacman -Qe | grep apache
+apin=$(sudo pacman -Qe | grep apache)
 
 if [[ -z "$apin" ]]; then
-    echo "apache belum terinstall."
-    sudo pacman -S apache
+    echo "apache belum terinstall"
+    sudo pacman -S apache --noconfirm
 else 
     echo "apache sudah terinstall"
 fi
