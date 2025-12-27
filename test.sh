@@ -5,7 +5,7 @@ sudo systemctl enable httpd &&
 sudo systemctl start httpd &&
 
 # Httpd already installed
-if sudo pacman -Qs apache > /dev/null ; then
+if sudo pacman -Qi apache > /dev/null ; then
     echo "Apache sudah terinstall."
 else
     echo "Apache belum terinstall. Silakan install terlebih dahulu."
