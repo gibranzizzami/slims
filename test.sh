@@ -13,11 +13,11 @@ fi
     sudo systemctl start httpd
 
 # install php
-phpin=("php" "php-fpm" "php-gd")
+phpin=$(sudo pacman -Qe | grep php php-gd php-fpm)
 
 if [[ -z "$phpin" ]]; then
     echo "php is not exist"
-    sudo pacman -S "${phpin[@]}" --noconfirm
+    sudo pacman -S php php-gd php-fpm --noconfirm
 else
     echo "php already exist"
 fi
