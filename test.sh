@@ -17,7 +17,7 @@ phpin=("php" "php-fpm" "php-gd")
 
 if [[ -z "$phpin" ]]; then
     echo "php is not exist"
-    sudo pacman -S "${PACKAGES[@]}" --noconfirm
+    sudo pacman -S "${phpin[@]}" --noconfirm
 else
     echo "php already exist"
 fi
