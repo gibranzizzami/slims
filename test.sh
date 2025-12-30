@@ -17,7 +17,8 @@ marin=$(sudo pacman -Qe | grep mariadb)
 
 if [[ -z "$marin" ]]; then
     echo "mariadb is not exist"
-    sudo pacman -S mariadb --noconfirm
+    sudo pacman -S mariadb --noconfirm &&
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
 else 
     echo "mariadb already installed"
 fi
@@ -25,18 +26,18 @@ fi
     sudo systemctl start mariadb
 
 # install php
-phpin=${phpin} php php-gd php-fpm
+phpin=$(sudo pacman -Qe | grep php php-gd php-fpm)
 
 if [[ -z "$phpin" ]]; then
     echo "php is not exist"
-    sudo pacman -S $phpin --noconfirm
+    sudo pacman -S php php-gd php-fpm --noconfirm
 else
    echo "php already exist"
 fi
 
 #install_php () {
  #   package="php" "php-gd" "php-fpm"
-  #  if pacman -Qe "$package" > /dev/null; then
+  #  if sudo pacman -Qe "$package" > /dev/null; then
    #    echo "package already installed"
     #else
      #   echo "package not installed"

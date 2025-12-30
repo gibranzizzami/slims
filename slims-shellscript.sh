@@ -1,17 +1,32 @@
 #!/bin/bash
+
 #install apache
-sudo pacman -S apache --noconfirm &&
-sudo systemctl enable httpd &&
-sudo systemctl start httpd &&
+apin=$(sudo pacman -Qe | grep apache)
+
+if [[ -z "$apin" ]]; then
+    echo "apache is not exist"
+    sudo pacman -S apache --noconfirm
+else 
+    echo "apache already installed"
+fi
+    sudo systemctl enable httpd &&
+    sudo systemctl start httpd &&
 
 # Install php
 sudo pacman -S php php-fpm php-gd --noconfirm &&
 
 # install mariadb
-sudo pacman -S mariadb --noconfirm &&
-sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
-sudo systemctl enable mariadb &&
-sudo systemctl start mariadb &&
+marin=$(sudo pacman -Qe | grep mariadb)
+
+if [[ -z "$marin" ]]; then
+    echo "mariadb is not exist"
+    sudo pacman -S mariadb --noconfirm &&
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
+else 
+    echo "mariadb already installed"
+fi
+    sudo systemctl enable mariadb &&
+    sudo systemctl start mariadb &&
 
 # create database & user
 sudo mysql -u root <<EOF
