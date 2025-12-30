@@ -12,6 +12,18 @@ fi
     sudo systemctl enable httpd &&
     sudo systemctl start httpd
 
+# install mariadb
+marin=$(sudo pacman -Qe | grep mariadb)
+
+if [[ -z "$marin" ]]; then
+    echo "mariadb is not exist"
+    sudo pacman -S mariadb --noconfirm
+else 
+    echo "mariadb already installed"
+fi
+    sudo systemctl enable mariadb &&
+    sudo systemctl start mariadb
+
 # install php
 # phpin=$(sudo pacman -Qe | grep php php-gd php-fpm)
 
