@@ -21,6 +21,7 @@ if [[ -z "$marin" ]]; then
 else 
     echo "mariadb already installed"
 fi
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
     sudo systemctl enable mariadb &&
     sudo systemctl start mariadb
 
