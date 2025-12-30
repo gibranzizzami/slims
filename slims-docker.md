@@ -13,6 +13,7 @@ git clone https://github.com/slims/docker-compose-for-slims.git
 ```
 cd docker-compose-for-slims/
 ```
+
 # ganti kepemilikan
 ```
 chmod -R 777 app/

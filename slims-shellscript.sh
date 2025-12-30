@@ -26,7 +26,7 @@ EOF
 # Download slims
 wget https://github.com/slims/slims9_bulian/releases/download/v9.7.2/slims9_bulian-9.7.2.tar.gz &&
 sudo tar -xf slims9_bulian-9.7.2.tar.gz -C /srv/http &&
-sudo mv -f /srv/http/slims9_bulian-9.7.2 /srv/http/slims &&
+sudo mv /srv/http/slims9_bulian-9.7.2 /srv/http/slims &&
 sudo chown -R http:http /srv/http/slims &&
 
 APACHE_CONF="/etc/httpd/conf/httpd.conf"
