@@ -26,11 +26,11 @@ fi
     sudo systemctl start mariadb
 
 # install php
-phpin=$(sudo pacman -Qe | grep php php-gd php-fpm)
+phpin=${sudo pacman -Qe | grep php php-gd php-fpm}
 
 if [[ -z "$phpin" ]]; then
     echo "php is not exist"
-    sudo pacman -S php php-gd php-fpm --noconfirm
+    sudo pacman -S ${phpin[@]} --noconfirm
 else
    echo "php already exist"
 fi
