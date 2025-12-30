@@ -21,7 +21,7 @@ marin=$(sudo pacman -Qe | grep mariadb)
 if [[ -z "$marin" ]]; then
     echo "mariadb is not exist"
     sudo pacman -S mariadb --noconfirm &&
-    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql &&
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 else 
     echo "mariadb already installed"
 fi
