@@ -34,13 +34,3 @@ if [[ -z "$phpin" ]]; then
 else
    echo "php already exist"
 fi
-
-#install_php () {
- #   package="php" "php-gd" "php-fpm"
-  #  if sudo pacman -Qe "$package" > /dev/null; then
-   #    echo "package already installed"
-    #else
-     #   echo "package not installed"
-      #  sudo pacman -S "$PACKAGE" --noconfirm
-    #fi
-#}
